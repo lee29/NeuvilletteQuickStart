@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <Windows.h>
 #include <chrono>
 #include <thread>
@@ -9,18 +9,15 @@ bool IsRunAsAdministrator() {
     DWORD dwError = ERROR_SUCCESS;
     PSID pAdministratorsGroup = NULL;
 
-    // Allocate and initialize a SID of the administrators group.
     SID_IDENTIFIER_AUTHORITY NtAuthority = SECURITY_NT_AUTHORITY;
     if (AllocateAndInitializeSid(&NtAuthority, 2, SECURITY_BUILTIN_DOMAIN_RID, DOMAIN_ALIAS_RID_ADMINS,
         0, 0, 0, 0, 0, 0, &pAdministratorsGroup))
     {
-        // Check whether the process is run as administrator.
         if (!CheckTokenMembership(NULL, pAdministratorsGroup, &fIsRunAsAdmin))
         {
             dwError = GetLastError();
         }
 
-        // Free the SID.
         FreeSid(pAdministratorsGroup);
     }
 
@@ -30,7 +27,7 @@ bool IsRunAsAdministrator() {
 void RestartAsAdministrator() {
     SHELLEXECUTEINFO sei = { sizeof(sei) };
     sei.lpVerb = L"runas";
-    sei.lpFile = GetCommandLine(); // Use the command line that started the program
+    sei.lpFile = GetCommandLine();
     sei.nShow = SW_NORMAL;
 
     if (!ShellExecuteEx(&sei)) {
@@ -42,18 +39,19 @@ int main() {
     if (!IsRunAsAdministrator()) {
         std::cerr << "Detected that the program is not run as administrator. Please run the program as an administrator." << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(3));
-        // 继续执行程序...
     }
 
-    std::cout << " 说明:按住“`”键以1高速旋转，该程序使用“mouse_event”模拟鼠标移动，没有注入内存，理论不会封号，如果不放心，可以使用云原神. \n Written by Morax";
+    std::cout << "Press the '~' key to start simulating mouse clicks. Written by Morax" << std::endl;
 
     while (true) {
-    if (GetKeyState(VK_OEM_3) < 0) {
-        mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
+        if (GetKeyState(VK_OEM_3) < 0) {
+            POINT p;
+            GetCursorPos(&p);
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, p.x, p.y, 0, 0);
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));
-}
 
     return 0;
 }
