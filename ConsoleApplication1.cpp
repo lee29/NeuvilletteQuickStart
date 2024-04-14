@@ -46,11 +46,15 @@ int main() {
     while (true) {
       //if (GetKeyState(VK_OEM_3) < 0) {
         if (GetKeyState(VK_XBUTTON2) < 0) {
-            POINT p;
-            GetCursorPos(&p);
-            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, p.x, p.y, 0, 0);
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
+			mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
+		}
+		//Sleep(1);
+        //if (GetKeyState(VK_XBUTTON2) < 0) {
+        //    POINT p;
+        //    GetCursorPos(&p);
+        //    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, p.x, p.y, 0, 0);
+        //    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+       // }
         
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
