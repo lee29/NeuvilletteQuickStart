@@ -48,7 +48,7 @@ int main() {
     std::cout << " 说明:按住“-”键以高速旋转，该程序使用“mouse_event”模拟鼠标移动，没有注入内存，理论不会封号，如果不放心，可以使用云原神.  Written by Morax";
 
     while (true) {
-        if (GetKeyState(VK_BROWSER_FORWARD) < 0) {
+        if (GetKeyState(VK_MEDIA_PREV_TRACK) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
         }
 
