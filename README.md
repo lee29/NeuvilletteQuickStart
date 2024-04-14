@@ -1,6 +1,6 @@
 # NeuvilletteQuickStart
 那维莱特转圈脚本 
 **请务必使用管理员身份运行**
-**说明:按住“鼠标侧键2”键以高速旋转，该程序使用“mouse_event”模拟鼠标移动，没有注入内存，理论不会封号。实测云原神可用**
 
-
+虚拟键代码
+https://learn.microsoft.com/zh-cn/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
