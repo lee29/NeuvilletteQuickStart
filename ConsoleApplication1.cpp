@@ -49,7 +49,7 @@ int main() {
 
     while (true) {
         if (GetKeyState(VK_MEDIA_PREV_TRACK) < 0) {
-            mouse_event(MOUSEEVENTF_MOVE, 400, 0, 0, 0);
+            mouse_event(MOUSEEVENTF_MOVE, 600, 0, 0, 0);
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
