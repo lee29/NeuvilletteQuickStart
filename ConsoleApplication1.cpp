@@ -53,7 +53,7 @@ int main() {
        // }
 
                
-        if( ::GetAsyncKeyState(VK_XBUTTON2) & 0x8000 ) {
+        if( ::GetAsyncKeyState(VK_XBUTTON2) < 0 ) {
             mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
         }
         
