@@ -45,10 +45,10 @@ int main() {
         // 继续执行程序...
     }
 
-    std::cout << "K";
+    std::cout << "VK_OEM_MINUS";
 
     while (true) {
-        if (GetKeyState(VK_K) < 0) {
+        if (GetKeyState(VK_OEM_MINUS) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 600, 0, 0, 0);
         }
 
