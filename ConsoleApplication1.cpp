@@ -45,10 +45,10 @@ int main() {
         // 继续执行程序...
     }
 
-    std::cout << "VK_MEDIA_PREV_TRACK";
+    std::cout << "J";
 
     while (true) {
-        if (GetKeyState(VK_MEDIA_PREV_TRACK) < 0) {
+        if (GetKeyState(J) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 600, 0, 0, 0);
         }
 
