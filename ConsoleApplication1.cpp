@@ -48,7 +48,7 @@ int main() {
     std::cout << "K";
 
     while (true) {
-        if (GetKeyState(K) < 0) {
+        if (GetKeyState(VK_K) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 600, 0, 0, 0);
         }
 
