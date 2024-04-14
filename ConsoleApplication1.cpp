@@ -45,10 +45,10 @@ int main() {
         // 继续执行程序...
     }
 
-    std::cout << "J";
+    std::cout << "K";
 
     while (true) {
-        if (GetKeyState(J) < 0) {
+        if (GetKeyState(K) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 600, 0, 0, 0);
         }
 
