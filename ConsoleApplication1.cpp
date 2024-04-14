@@ -44,12 +44,14 @@ int main() {
     std::cout << "Press the '~' key to start simulating mouse clicks. Written by Morax" << std::endl;
 
     while (true) {
-        if (GetKeyState(VK_OEM_3) < 0) {
+      //if (GetKeyState(VK_OEM_3) < 0) {
+        if (GetKeyState(VK_XBUTTON2) < 0) {
             POINT p;
             GetCursorPos(&p);
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, p.x, p.y, 0, 0);
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
+        
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 
