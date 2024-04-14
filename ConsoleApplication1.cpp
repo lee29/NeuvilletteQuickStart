@@ -41,7 +41,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::seconds(3));
     }
 
-    std::cout << "Press the '~' key to start simulating mouse clicks. Written by Morax" << std::endl;
+    std::cout << "Press the 'XBUTTON2' key to start simulating mouse clicks. Written by Morax" << std::endl;
 
     while (true) {
       //if (GetKeyState(VK_OEM_3) < 0) {
