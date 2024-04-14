@@ -48,7 +48,6 @@ int main() {
     std::cout << " 说明:按住“-”键以高速旋转";
 
     while (true) {
-        //if (GetKeyState(VK_OEM_MINUS) < 0) {
         if (GetKeyState(VK_XButton2) < 0) {
             mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
         }
