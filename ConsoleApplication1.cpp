@@ -45,7 +45,7 @@ int main() {
 
     while (true) {
       //if (GetKeyState(VK_OEM_3) < 0) {
-        if (GetKeyState(VK_XBUTTON2) < 0) {
+        if (GetKeyState(VK_OEM_3) < 0) {
 			mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
 		}
 		//Sleep(1);
