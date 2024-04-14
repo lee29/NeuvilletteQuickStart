@@ -34,11 +34,4 @@ jobs:
         name: cpp-build-artifacts
         path: NeuvilletteQuickStart_build
 
-      - name: Upload release asset
-        if: github.event == 'release'
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./artifact/firmware/*
-          tag: ${{ github.ref }}
-          file_glob: true
+
